@@ -12,12 +12,11 @@ import java.util.List;
 public class ClienteService {
     //Inyectamos el repositorio para poder acceder a la base de datos
     private final ClienteRepository clienteRepository;
-    private final ResponseEntityExceptionHandler responseEntityExceptionHandler;
 
     //Contructor: Spring inyecta automaticamente el repositorio(las dependencias)
-    public ClienteService(ClienteRepository clienteRepository, ResponseEntityExceptionHandler responseEntityExceptionHandler) {
+    public ClienteService(ClienteRepository clienteRepository ) {
         this.clienteRepository = clienteRepository;
-        this.responseEntityExceptionHandler = responseEntityExceptionHandler;
+
     }
 
     //Retorna o recive la lista de todos los clientes
@@ -27,7 +26,7 @@ public class ClienteService {
 
     // Elimina el cliete por ID
     public void eliminarCliente(Long id) {
-        clienteRepository.deleteAllById(id);
-        return responseEntity.noContent().build();
+        clienteRepository.deleteById(id);
+
     }
 }

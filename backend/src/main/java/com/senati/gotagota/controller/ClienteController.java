@@ -32,10 +32,10 @@ public class ClienteController {
 
     // DELETE /API/CLIENTES{id} -> elimina un cliente por su ID
     @DeleteMapping("/{id}")
-    public ReponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<?> eliminarClientes(@PathVariable Long id) {
 
         clienteService.eliminarCliente(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Cliente eliminado");
     }
 }
 
