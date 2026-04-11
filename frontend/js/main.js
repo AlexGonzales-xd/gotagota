@@ -42,17 +42,17 @@ document.addEventListener("click", function (e) {
         fetch(`http://localhost:8080/api/clientes/${id}`, {
             method: 'DELETE'
         })
-            .then(response => {
-                if (response.ok) {
-                    alert('Cliente eliminado correctamente');
-                    location.reload(); // Recargar la página para reflejar los cambios
-                } else {
-                    alert('Error al eliminar el cliente');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
+        .then(response => {
+            if (response.ok) {
+                alert('Cliente eliminado correctamente');
+                location.reload(); // Recargar la página para reflejar los cambios
+            } else {
                 alert('Error al eliminar el cliente');
-            });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al eliminar el cliente');
+        });
     }
 });
