@@ -23,6 +23,10 @@ public class ClienteService {
     public List<Cliente> listarTodos() {
         return clienteRepository.findAll();
     }
+    // Crear un cliente
+public Cliente crearCliente(Cliente cliente){
+        return clienteRepository.save(cliente);
+}
 
     // Elimina el cliete por ID
     public void eliminarCliente(Long id) {

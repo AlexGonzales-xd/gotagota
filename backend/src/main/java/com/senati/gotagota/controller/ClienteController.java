@@ -30,6 +30,12 @@ public class ClienteController {
         return clienteService.listarTodos();
     }
 
+    // POST /api/clientes-> para guardar un cliente
+    @PostMapping
+    public ResponseEntity<Cliente> crear(@RequestBody Cliente cliente){
+        return ResponseEntity.ok(clienteService.crearCliente(cliente));
+    }
+
     // DELETE /API/CLIENTES{id} -> elimina un cliente por su ID
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarClientes(@PathVariable Long id) {
